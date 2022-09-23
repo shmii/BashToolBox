@@ -9,8 +9,18 @@
 
 # This function Check if requist binaries are installed
 # Usage : check_requirements <BINARY1> <BINARY2> <...> <BINARYn>
+
 check_requirements() {
   local _fname="check_requirements()"
+  local _task=""
+  local _cmd=""
+  local _retval=0
+  local _retcode=0
+
+  local _paramerters_number=$#
+  local __paramerters_number_expected="-1"
+
+
   local _binary_file
 
   #
