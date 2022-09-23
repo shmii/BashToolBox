@@ -12,25 +12,35 @@
 function chown_set()
 {
   local _fname="chown_set()"
-  local _paramerters_number=$#
-  local _expectedParam="3"
-
-  local _owner=$1
-  local _group=$2
-  local _file=$3
-
   local _task=""
   local _cmd=""
   local _retval=0
   local _retcode=0
 
-  if [ "$_paramerters_number" -ne $_expectedParam ]; then
+
+  local _paramerters_number=$#
+  local _paramerters_number_expected="3"
+
+  # TASK : Load and Check Parameters - START
+  _task="Load and Check Parameters"
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Start"
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Loading ..."
+  local _owner=$1
+  local _group=$2
+  local _file=$3
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Checking ..."
+  if [ "$_paramerters_number" -ne $_paramerters_number_expected ]; then
   {
-    echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - [ERROR] Number of parameters is invalide."
-    echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - [ERROR] Number of parameters is invalide - There is \"$_paramerters_number\" ($_expectedParam is expected)"
-    exit 1
+    $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] Number of parameters is invalide." >&2)
+    $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] Number of parameters is invalide - There is \"$_paramerters_number\" ($_paramerters_number_expected is expected)" >&2)
+    echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - End (1)"
+    return 1
   }
   fi
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Done"
+  # TASK : Load and Check Parameters - END
+
+
 
   #Chown set owner and group
   _task="chown _owner:$_owner _group:$_group _file:$_file"
