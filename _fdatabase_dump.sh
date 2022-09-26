@@ -45,7 +45,6 @@ function database_dump()
   local _db_dump_credential_file=$4
   local _db_dump_options=$5
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Checking ..."
-  SCRIPT_PARAMETERS_NUMBERS_EXPECTED="4"
   if [ "$_paramerters_number" -ne $_expected_paramerters_number ]; then
   {
     $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - [ERROR] Number of parameters is invalide." >&2)
