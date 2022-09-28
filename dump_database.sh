@@ -4,12 +4,9 @@ WAIT_TIMER=1
 SCRIPT_PID=${$}
 SCRIPT_PATH=`dirname "$0"`
 SCRIPT_NAME=`basename "$0"`
-
 SCRIPT_PARAMETERS_NUMBERS=$#
-
 SCRIPT_START_DATE=$(date +"%Y-%m-%d-%H:%M")
 SCRIPT_START_TIME=$(date +"%H:%M")
-
 DATE=$(date +"%Y%m%d-%H%M")
 
 USAGE="\$ $SCRIPT_NAME  <DATABASE_TYPE> <DATABASE_NAME> <CREDENTIAL_FILE> <OUTPUT_PATH> <OUTPUT_FILE> <OPTIONS>"
@@ -43,6 +40,15 @@ port = your_MySQL_server_port
 user = database_user_name
 password = database_password
 '
+
+_retcode= 0
+_db_type=''                     #$1
+_db_name=''                     #$2
+_db_dump_credential_file=''     #$3
+_db_dump_output_path=''         #$4
+_db_dump_output_file=''         #$5
+_db_dump_options=''             #$6
+_paramerters_number_expected="6"
 
 #
 #
@@ -84,11 +90,10 @@ _db_dump_output_path=$4
 _db_dump_output_file=$5
 _db_dump_options=$6
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Checking ..."
-SCRIPT_PARAMETERS_NUMBERS_EXPECTED="6"
-if [ "$SCRIPT_PARAMETERS_NUMBERS" -ne $SCRIPT_PARAMETERS_NUMBERS_EXPECTED ]; then
+if [ "$SCRIPT_PARAMETERS_NUMBERS" -ne $_paramerters_number_expected ]; then
 {
   $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] Number of parameters is invalid." >&2)
-  $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] There is \"$SCRIPT_PARAMETERS_NUMBERS\" ($SCRIPT_PARAMETERS_NUMBERS_EXPECTED is expected" >&2)
+  $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] There is \"$SCRIPT_PARAMETERS_NUMBERS\" ($_paramerters_number_expected is expected" >&2)
   $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] exit ($_retcode)" >&2)
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - $USAGE"
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Failed !"

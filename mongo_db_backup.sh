@@ -26,7 +26,7 @@ cd "$SCRIPT_PATH"
 _task="Load and Check Parameters"
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Start"
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Loading ..."
-SCRIPT_PARAMETERS_NUMBERS_EXPECTED="4"
+_paramerters_number_expected="4"
 _db_host="$1"
 _db_name="$2"
 _script_tmp_directory="$3"
@@ -36,10 +36,10 @@ _dump_tmp_directory="$_script_tmp_directory/$_db_name-backup-$_db_dump_date"
 _dump_archive_name="$_db_name-backup-$_db_dump_date.tgz"
 
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Checking ..."
-if [ "$SCRIPT_PARAMETERS_NUMBERS" -ne $SCRIPT_PARAMETERS_NUMBERS_EXPECTED ]; then
+if [ "$SCRIPT_PARAMETERS_NUMBERS" -ne $_paramerters_number_expected ]; then
 {
   $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] Number of parameters is invalid." >&2)
-  $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] There is \"$SCRIPT_PARAMETERS_NUMBERS\" ($SCRIPT_PARAMETERS_NUMBERS_EXPECTED is expected" >&2)
+  $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] There is \"$SCRIPT_PARAMETERS_NUMBERS\" ($_paramerters_number_expected is expected" >&2)
   $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] exit ($_retcode)" >&2)
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - $USAGE"
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Failed !"

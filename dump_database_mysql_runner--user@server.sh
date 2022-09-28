@@ -34,10 +34,11 @@ _dump_options=""
 _dump_options="$_dump_options --routines"
 _dump_options="$_dump_options --events"
 
-_dump_options="$_dump_options --opt"                                            #Identique à --quick --add-drop-table --add-locks --extended-insert --lock-tables
+# _dump_options="$_dump_options --opt"                                            #Identique à --quick --add-drop-table --add-locks --extended-insert --lock-tables
 # _dump_options="$_dump_options --lock-tables"
 # _dump_options="$_dump_options --add-locks"
-# _dump_options="$_dump_options --quick"
+_dump_options="$_dump_options --quick"
+_dump_options="$_dump_options --ignore-table=tm.logxxx"
 # _dump_options="$_dump_options --extended-insert"
 
 #_dump_options="$_dump_options --single-transaction"                            #--single-transaction a été ajoutée en version 4.0.2.

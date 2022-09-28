@@ -19,7 +19,7 @@ function chmod_set() {
 
 
   local _paramerters_number=$#
-  local _paramerters_number_expected="2"
+  local _paramerters_number_expected=2
 
   # TASK : Load and Check Parameters - START
   _task="Load and Check Parameters"
@@ -30,11 +30,11 @@ function chmod_set() {
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Checking ..."
   if [ "$_paramerters_number" -ne $_paramerters_number_expected ]; then
   {
-    local _retcode+=1
+    _retcode=1
     $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] Number of parameters is invalide." >&2)
     $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] Number of parameters is invalide - There is \"$_paramerters_number\" ($_paramerters_number_expected is expected)" >&2)
-    echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - End (1)"
-    return 1
+    echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - End ($_retcode)"
+    return "$_retcode"
   }
   fi
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Done"

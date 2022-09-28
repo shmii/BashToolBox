@@ -18,8 +18,7 @@ check_requirements() {
   local _retcode=0
 
   local _paramerters_number=$#
-  local __paramerters_number_expected="-1"
-
+  local _paramerters_number_expected="-1"
 
   local _binary_file
 
