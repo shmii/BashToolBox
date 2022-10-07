@@ -59,7 +59,6 @@ cd "$SCRIPT_PATH"
 _fname="main()"
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - START in ($SCRIPT_PATH)"
 
-
 #
 # TASK : Loading dependencies - START
 _task="Loading dependencies"
@@ -78,7 +77,6 @@ done
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - End"
 # TASK : Loading dependencies - END
 #
-
 
 #
 # TASK : Load and Check Parameters - START
@@ -107,7 +105,6 @@ echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Done"
 # TASK : Load and Check Parameters - END
 #
 
-
 #
 # TASK : _fdump_database() - START
 _task="_fdatabase_dump()"
@@ -126,28 +123,6 @@ else
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - End"
 fi
 # TASK : _fdump_database() - END
-#
-
-
-#
-# TASK : _tar_gz_file() - START
-_task="_tar_gz_file()"
-_cmd="tar_gz_file \"$_db_dump_output_path\" \"$_db_dump_output_file\" \"--remove-files\""
-echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Start"
-echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Commande = \"$_cmd\""
-tar_gz_file "$_db_dump_output_path" "$_db_dump_output_file" "--remove-files"
-_retcode=$?
-if [ "$_retcode" -ne 0 ] ; then
-  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] - Commande faild !"
-  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] - Return Code = $(echo $_retcode)"
-  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - End"
-  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - END"
-  exit "$_retcode"
-else
-  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - End"
-fi
-echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - END"
-# TASK : _tar_gz_file() - END
 #
 
 
