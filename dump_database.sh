@@ -114,7 +114,7 @@ _task="_fdatabase_dump()"
 _cmd="database_dump \"$_db_type\" \"$_db_name\" \"$_db_dump_output_path$_db_dump_output_file\" \"$_db_dump_credential_file\" \"$_db_dump_options\""
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Start"
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Commande = \"$_cmd\""
-database_dump "$_db_type" "$_db_name" "$_db_dump_output_path$_db_dump_output_file" "$_db_dump_credential_file" "$_dump_options"
+database_dump "$_db_type" "$_db_name" "$_db_dump_output_path$_db_dump_output_file" "$_db_dump_credential_file" "$_db_dump_options"
 _retcode=$?
 if [ "$_retcode" -ne 0 ] ; then
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - [ERROR] - Commande faild !"
