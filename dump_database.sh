@@ -50,12 +50,14 @@ _db_dump_output_file=''         #$5
 _db_dump_options=''             #$6
 _paramerters_number_expected="6"
 
+cd "$SCRIPT_PATH"
+
+
 #
 #
 # Script principal - MAIN()
 _fname="main()"
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - START in ($SCRIPT_PATH)"
-cd "$SCRIPT_PATH"
 
 
 #
