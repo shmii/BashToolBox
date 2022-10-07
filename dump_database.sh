@@ -111,7 +111,7 @@ echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Done"
 #
 # TASK : _fdump_database() - START
 _task="_fdatabase_dump()"
-_cmd="database_dump \"$_db_type\" \"$_db_name\" \"$_db_dump_output_path$_db_dump_output_file\" \"$_db_dump_credential_file\" \"$_dump_options\""
+_cmd="database_dump \"$_db_type\" \"$_db_name\" \"$_db_dump_output_path$_db_dump_output_file\" \"$_db_dump_credential_file\" \"$_db_dump_options\""
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Start"
 echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Commande = \"$_cmd\""
 database_dump "$_db_type" "$_db_name" "$_db_dump_output_path$_db_dump_output_file" "$_db_dump_credential_file" "$_dump_options"
