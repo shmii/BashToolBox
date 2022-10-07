@@ -41,7 +41,7 @@ user = database_user_name
 password = database_password
 '
 
-_retcode= 0
+_retcode=0
 _db_type=''                     #$1
 _db_name=''                     #$2
 _db_dump_credential_file=''     #$3
