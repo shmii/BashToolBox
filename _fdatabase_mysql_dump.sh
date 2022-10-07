@@ -32,7 +32,7 @@ function database_mysql_dump()
   local _mysqldump_options="$4"
 
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Checking ..."
-  if [ "$_expectedParam" -ne $paramerters ]; then
+  if [ "$_expectedParam" -ne $_paramerters_number ]; then
   {
     $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - [ERROR] Number of parameters is invalide." >&2)
     $(echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - [ERROR] Number of parameters is invalide - There is \"$_paramerters_number\" ($_expected_paramerters_number is expected)" >&2)
