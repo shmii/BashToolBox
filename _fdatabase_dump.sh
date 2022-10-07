@@ -56,8 +56,12 @@ function database_dump()
   # TASK : Load and Check Parameters - END
 
   #TASK : Dump MySql Database - START
-  _task="Dump MySql Database"
+  _task="Dump Database"
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Start"
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - _db_name : $_db_name"
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - _db_backup_output_file : $_db_backup_output_file"
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - _db_dump_credential_file : $_db_dump_credential_file"
+  echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - _db_dump_options : $_db_dump_options"
   case $_db_server_type in
   	postgresql)
       _cmd="database_postgresql_dump \"$_db_name\" \"$_db_backup_output_file\" \"$_db_dump_credential_file\" \"$_db_dump_options\""
