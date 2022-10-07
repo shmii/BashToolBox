@@ -46,7 +46,7 @@ function database_mysql_dump()
 
   #Dump MySql Database
   _task="Dump MySql Database"
-  _cmd="mysqldump $_mysqldump_options --defaults-extra-file=$_credential_file --databases $_db_name --result-file=$_db_backup_output_file --log-error=$_db_backup_output_file.errors"
+  _cmd="mysqldump --defaults-extra-file=$_credential_file $_mysqldump_options --databases $_db_name --result-file=$_db_backup_output_file --log-error=$_db_backup_output_file.errors"
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Start"
   echo "$(date) - [$SCRIPT_NAME ($SCRIPT_PID)] - $_fname - $_task - Commande = \"$_cmd\""
   _retval=$($_cmd 2>&1 )
